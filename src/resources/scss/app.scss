@@ -1,0 +1,25 @@
+@import 'variables';
+
+h1 {
+    color: $red-color;
+}
+
+h2 {
+    color: darkblue;
+}
+
+h3 {
+    color: brown;
+}
+
+.card-course-item {
+    margin-top: 16px;
+}
+
+p {
+    width: 260px;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; /* Giới hạn 2 dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
