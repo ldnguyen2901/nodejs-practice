@@ -1,28 +1,17 @@
 const Course = require('../models/Course');
 
-class SiteController {
-    //GET /
-    async index(req, res, next) {
-        // try {
-        //     const courses = await Course.find({});
-        //     res.json(courses);
-        // } catch (err) {
-        //     res.status(400).json({ error: 'error!' });
-        // }
-        // }
+class MeController {
+    //[GET] /store/courses
+    storedCourses(req, res, next) {
         Course.find({})
             .lean()
-            .then((courses) => res.render('home', { courses }))
+            .then((courses) => res.render('me/stored-courses', { courses }))
             .catch(next);
-    }
-
-    //[GET] /search
-    search(req, res) {
-        res.render('search');
+        // res.render('me/stored-courses');
     }
 }
 
-module.exports = new SiteController();
+module.exports = new MeController();
 
 /*
 Việc truy cập dữ liệu gốc từ con đường input được cho là có lỗ hổng bảo mật lớn và đã bị gỡ bỏ , phải thêm 1 bước chuyển đổi dữ liệu để có thể gọi find({}).lean() có thể giải quyết lỗi ko render ra được dữ liệu
