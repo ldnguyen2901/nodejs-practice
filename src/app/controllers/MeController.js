@@ -1,14 +1,23 @@
 const Course = require('../models/Course');
 
 class MeController {
-    //[GET] /store/courses
-    storedCourses(req, res, next) {
-        Course.find({})
-            .lean()
-            .then((courses) => res.render('me/stored-courses', { courses }))
-            .catch(next);
-        // res.render('me/stored-courses');
-    }
+  //[GET] /me/store/courses
+  storedCourses(req, res, next) {
+    Course.find({})
+      .lean()
+      .then((courses) => res.render('me/stored-courses', { courses }))
+      .catch(next);
+    // res.render('me/stored-courses');
+  }
+
+  //[GET] /me/trash/courses
+  trashCourses(req, res, next) {
+    Course.findWithDeleted({ deleted: true })
+      .lean()
+      .then((courses) => res.render('me/trash-courses', { courses }))
+      .catch(next);
+    // res.render('me/stored-courses');
+  }
 }
 
 module.exports = new MeController();
