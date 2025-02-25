@@ -1,25 +1,30 @@
 @import 'variables';
 
 h1 {
-    color: $red-color;
+  color: $red-color;
 }
 
 h2 {
-    color: darkblue;
+  color: darkblue;
 }
 
 h3 {
-    color: brown;
+  color: brown;
 }
 
 .card-course-item {
-    margin-top: 16px;
+  margin-top: 16px;
+}
+
+.checkbox-select-all-options {
+  width: 150px;
+  margin: 0px 10px;
 }
 
 p {
-    width: 260px;
-    display: -webkit-box;
-    -webkit-line-clamp: 5; /* Giới hạn 2 dòng */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  width: 260px;
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* Giới hạn 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
