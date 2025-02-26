@@ -1,69 +1,63 @@
 <div class='mt-4'>
-    <div>
-        <h3>Khoá học đã Xoá</h3>
-        <a href="/me/stored/courses">Danh sách Khoá học</a>
-    </div>
-    <table class='table mt-4'>
-        <thead>
-            <tr>
-                <th scope='col'>#</th>
-                <th scope='col'>Tên khoá học</th>
-                <th scope='col'>Level</th>
-                <th scope='col' colspan='2'>Thời gian xoá</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each courses}}
-                <tr>
-                    <th scope='row'>{{sum @index 1}}</th>
-                    <td>{{this.name}}</td>
-                    <td>{{this.level}}</td>
-                    <td>{{this.deletedAt}}</td>
-                    <td>
-                        <a href="" class='btn btn-link btn-restore' data-id="{{this._id}}">Khôi phục</a>
-                        <!-- Button trigger modal -->
-                        <a
-                            href=""
-                            class='btn btn-link'
-                            data-id="{{this._id}}"
-                            data-bs-toggle='modal'
-                            data-bs-target='#delete-course-modal'
-                        >Xoá vĩnh viễn</a>
-                    </td>
-                </tr>
-            {{else}}
-                <tr>
-                    <td colspan="5" class="text-center">
-                        Thùng rác trống
-                    </td>
-                </tr>
-            {{/each}}
-        </tbody>
-    </table>
+  <div>
+    <h3>Khoá học đã Xoá</h3>
+    <a href='/me/stored/courses'>Danh sách Khoá học</a>
+  </div>
+  <table class='table mt-4'>
+    <thead>
+      <tr>
+        <th scope='col'>#</th>
+        <th scope='col'>Tên khoá học</th>
+        <th scope='col'>Level</th>
+        <th scope='col' colspan='2'>Thời gian xoá</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each courses}}
+        <tr>
+          <th scope='row'>{{sum @index 1}}</th>
+          <td>{{this.name}}</td>
+          <td>{{this.level}}</td>
+          <td>{{formatDate this.deletedAt 'DD/MM/YYYY HH:mm:ss'}}</td>
+          <td>
+            <a href='' class='btn btn-link btn-restore' data-id='{{this._id}}'>Khôi phục</a>
+            <!-- Button trigger modal -->
+            <a href='' class='btn btn-link' data-id='{{this._id}}' data-bs-toggle='modal' data-bs-target='#delete-course-modal'>Xoá vĩnh viễn</a>
+          </td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan='5' class='text-center'>
+            Thùng rác trống
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>
 
 {{! Confirm delete course }}
 <!-- Modal -->
 <div class='modal fade' id='delete-course-modal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-    <div class='modal-dialog'>
-        <div class='modal-content'>
-            <div class='modal-header'>
-                <h1 class='modal-title fs-5' id='exampleModalLabel'>Xoá khoá học Vĩnh viễn?</h1>
-                <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
-            </div>
-            <div class='modal-body'>
-                <p>Hành động này không thể khôi phục.<br>Bạn vẫn muốn xoá khoá học này?</p>
-            </div>
-            <div class='modal-footer'>
-                <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Huỷ</button>
-                <button id="btn-delete-course" type='button' class='btn btn-danger'>Xoá Vĩnh viễn</button>
-            </div>
-        </div>
+  <div class='modal-dialog'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='exampleModalLabel'>Xoá khoá học Vĩnh viễn?</h1>
+        <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+      </div>
+      <div class='modal-body'>
+        <p>Hành động này không thể khôi phục.<br />Bạn vẫn muốn xoá khoá học này?</p>
+      </div>
+      <div class='modal-footer'>
+        <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Huỷ</button>
+        <button id='btn-delete-course' type='button' class='btn btn-danger'>Xoá Vĩnh viễn</button>
+      </div>
     </div>
+  </div>
 </div>
 
-<form name="delete-course-form" method="POST"></form>
-<form name="restore-course-form" method="POST"></form>
+<form name='delete-course-form' method='POST'></form>
+<form name='restore-course-form' method='POST'></form>
 
 <script>
     var CourseId;

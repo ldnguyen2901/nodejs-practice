@@ -1,20 +1,40 @@
-<div class='mt-4'>
-    <div class='row'>
-        {{#each courses}}
-            <div class='col-sm-6 col-lg-4'>
-                <div class='card card-course-item'>
-                    <a href='/courses/{{this.slug}}'>
-                        <img src='{{this.image}}' class='card-img-top' alt='{{this.name}}' />
-                    </a>
-                    <div class='card-body'>
-                        <a href='/courses/{{this.slug}}'>
-                            <h5 class='card-title'>{{this.name}}</h5>
-                        </a>
-                        <p class='card-text'>{{this.description}}</p>
-                        <a href='/courses/{{this.slug}}' class='btn btn-primary'>Mua khoá học</a>
-                    </div>
-                </div>
-            </div>
-        {{/each}}
+<div class='my-sm-4'>
+  <div class='row'>
+    {{#each courses}}
+      <div class='col-sm-6 col-lg-4'>
+        <div class='card card-course-item'>
+          <a href='/courses/{{this.slug}}'>
+            <img src='{{this.image}}' class='card-img-top' alt='{{this.name}}' />
+          </a>
+          <div class='card-body'>
+            <a href='/courses/{{this.slug}}'>
+              <h5 class='card-title'>{{this.name}}</h5>
+            </a>
+            <p class='card-text'>{{this.description}}</p>
+            <a href='/courses/{{this.slug}}' class='btn btn-primary'>Mua khoá học</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
+    <div class='col-sm-6 col-lg-4' aria-hidden='true'>
+      <div class='card card-course-item'>
+        <img src='https://img.freepik.com/premium-photo/seamless-geometric-pattern-fabric-wallpaper-background-design_955379-17743.jpg?semt=ais_hybrid' class='card-img-top' alt='...' style="width: 354; height: 199;"/>
+        <div class='card-body'>
+          <h5 class='card-title placeholder-glow'>
+            <span class='placeholder col-6'></span>
+          </h5>
+          <p class='card-text placeholder-glow'>
+            <span class='placeholder col-7'></span>
+            <span class='placeholder col-4'></span>
+            <span class='placeholder col-4'></span>
+            <span class='placeholder col-6'></span>
+            <span class='placeholder col-8'></span>
+          </p>
+          <a class='btn btn-primary disabled placeholder col-6' aria-disabled='true'></a>
+        </div>
+      </div>
     </div>
+
+  </div>
 </div>
