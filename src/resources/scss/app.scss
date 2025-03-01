@@ -13,10 +13,18 @@ h2 {
   margin: 0px 10px;
 }
 
+.container {
+  min-height: 85%;
+}
+
 footer {
   background-color: black;
   color: #a9b3bb;
   padding: 10px;
+}
+
+footer .container {
+  min-height: 0vh;
 }
 
 footer h5 {
